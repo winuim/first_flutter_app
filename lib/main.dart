@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/random_words.dart';
-import 'package:first_flutter_app/demo.dart';
-import 'package:first_flutter_app/fitkit.dart';
-import 'package:first_flutter_app/webview_example.dart';
+import 'package:flutter/cupertino.dart';
 
+import 'myapp.dart';
 
-void main() => runApp(WebViewExampleApp());
+void main() => runApp(CupertinoMyApp());

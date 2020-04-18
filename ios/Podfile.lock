@@ -2,20 +2,32 @@ PODS:
   - fit_kit (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - pedometer (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - fit_kit (from `.symlinks/plugins/fit_kit/ios`)
   - Flutter (from `Flutter`)
+  - pedometer (from `.symlinks/plugins/pedometer/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 EXTERNAL SOURCES:
   fit_kit:
     :path: ".symlinks/plugins/fit_kit/ios"
   Flutter:
     :path: Flutter
+  pedometer:
+    :path: ".symlinks/plugins/pedometer/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
   fit_kit: 7643191161673bcd32863ae3f10baed6ce55c7c0
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  pedometer: e27471953eabc0ceed97e4828c0bccf91d179d86
+  webview_flutter: bec7599de6bfbe8008a739aa3ebd7b364ea9d0cd
 
 PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
 

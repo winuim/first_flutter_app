@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,11 +25,13 @@ dependencies:
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
   fit_kit: ^1.1.1
+  pedometer: ^1.0.0
   webview_flutter: ^0.3.20
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pedantic_mono: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
