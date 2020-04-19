@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
 
 class PedoMeterPage extends StatefulWidget {
@@ -38,12 +38,12 @@ class _MyAppState extends State<PedoMeterPage> {
   }
 
   void _onData(int stepCountValue) async {
-    setState(() => _stepCountValue = "$stepCountValue");
+    setState(() => _stepCountValue = '$stepCountValue');
   }
 
-  void _onDone() => print("Finished pedometer tracking");
+  void _onDone() => print('Finished pedometer tracking');
 
-  void _onError(error) => print("Flutter Pedometer Error: $error");
+  void _onError(dynamic error) => print('Flutter Pedometer Error: $error');
 
 
   @override

@@ -34,7 +34,7 @@ class RandomWords extends StatefulWidget {
 
 class RandomWordsState extends State<RandomWords> {
   final List<WordPair> _suggestions = <WordPair>[];
-  final Set<WordPair> _saved = Set<WordPair>();
+  final Set<WordPair> _saved = <WordPair>{};
   final TextStyle _biggerFont = const TextStyle(fontSize: 18);
 
   @override
@@ -43,7 +43,7 @@ class RandomWordsState extends State<RandomWords> {
     // return Text(wordPair.asPascalCase);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Startup Name Generator'),
+        title: const Text('Startup Name Generator'),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
         ],
@@ -88,7 +88,7 @@ class RandomWordsState extends State<RandomWords> {
           // Add a one-pixel-high divider widget before each row
           // in the ListView.
           if (i.isOdd) {
-            return Divider();
+            return const Divider();
           }
 
           // The syntax "i ~/ 2" divides i by 2 and returns an
@@ -129,7 +129,7 @@ class RandomWordsState extends State<RandomWords> {
 
           return Scaffold(
             appBar: AppBar(
-              title: Text('Saved Suggestions'),
+              title: const Text('Saved Suggestions'),
             ),
             body: ListView(children: divided),
           );

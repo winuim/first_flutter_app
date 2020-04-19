@@ -61,9 +61,7 @@ class _WebViewExampleState extends State<WebViewExample> {
         return WebView(
           initialUrl: 'https://flutter.dev',
           javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (WebViewController webViewController) {
-            _controller.complete(webViewController);
-          },
+          onWebViewCreated: _controller.complete,
           // TODO(iskakaushik): Remove this when collection literals makes it to stable.
           // ignore: prefer_collection_literals
           javascriptChannels: <JavascriptChannel>[
@@ -246,13 +244,13 @@ class SampleMenu extends StatelessWidget {
   void _onClearCache(WebViewController controller, BuildContext context) async {
     await controller.clearCache();
     Scaffold.of(context).showSnackBar(const SnackBar(
-      content: Text("Cache cleared."),
+      content: Text('Cache cleared.'),
     ));
   }
 
   void _onClearCookies(BuildContext context) async {
     final bool hadCookies = await cookieManager.clearCookies();
-    String message = 'There were cookies. Now, they are gone!';
+    var message = 'There were cookies. Now, they are gone!';
     if (!hadCookies) {
       message = 'There are no cookies.';
     }
@@ -309,7 +307,7 @@ class NavigationControls extends StatelessWidget {
                         await controller.goBack();
                       } else {
                         Scaffold.of(context).showSnackBar(
-                          const SnackBar(content: Text("No back history item")),
+                          const SnackBar(content: Text('No back history item')),
                         );
                         return;
                       }
@@ -325,7 +323,7 @@ class NavigationControls extends StatelessWidget {
                       } else {
                         Scaffold.of(context).showSnackBar(
                           const SnackBar(
-                              content: Text("No forward history item")),
+                              content: Text('No forward history item')),
                         );
                         return;
                       }
@@ -335,9 +333,7 @@ class NavigationControls extends StatelessWidget {
               icon: const Icon(Icons.replay),
               onPressed: !webViewReady
                   ? null
-                  : () {
-                      controller.reload();
-                    },
+                  : controller.reload,
             ),
           ],
         );

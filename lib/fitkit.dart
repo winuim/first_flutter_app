@@ -10,11 +10,11 @@ class FitKitPage extends StatefulWidget {
 
 class _FitKitAppState extends State<FitKitPage> {
   String result = '';
-  Map<DataType, List<FitData>> results = Map();
+  Map<DataType, List<FitData>> results = {};
   bool permissions;
 
-  RangeValues _dateRange = RangeValues(1, 8);
-  List<DateTime> _dates = List<DateTime>();
+  RangeValues _dateRange = const RangeValues(1, 8);
+  final List<DateTime> _dates = <DateTime>[];
   double _limitRange = 0;
 
   DateTime get _dateFrom => _dates[_dateRange.start.round()];
@@ -27,7 +27,7 @@ class _FitKitAppState extends State<FitKitPage> {
 
     final now = DateTime.now();
     _dates.add(null);
-    for (int i = 7; i >= 0; i--) {
+    for (var i = 7; i >= 0; i--) {
       _dates.add(DateTime(
         now.year,
         now.month,
@@ -47,7 +47,7 @@ class _FitKitAppState extends State<FitKitPage> {
       if (!permissions) {
         result = 'requestPermissions: failed';
       } else {
-        for (DataType type in DataType.values.sublist(0,7)) {
+        for (var type in DataType.values.sublist(0,7)) {
           results[type] = await FitKit.read(
             type,
             dateFrom: _dateFrom,
@@ -99,14 +99,14 @@ class _FitKitAppState extends State<FitKitPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('FitKit Example'),
+          title: const Text('FitKit Example'),
         ),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(padding: EdgeInsets.symmetric(vertical: 8)),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
               Text(
                   'Date Range: ${_dateToString(_dateFrom)} - ${_dateToString(_dateTo)}'),
               Text('Limit: $_limit'),
@@ -122,15 +122,15 @@ class _FitKitAppState extends State<FitKitPage> {
                     final item = items[index];
                     if (item is DataType) {
                       return Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           '$item - ${results[item].length}',
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.headline6,
                         ),
                       );
                     } else if (item is FitData) {
                       return Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           vertical: 4,
                           horizontal: 8,
                         ),
@@ -163,7 +163,7 @@ class _FitKitAppState extends State<FitKitPage> {
   Widget _buildDateSlider(BuildContext context) {
     return Row(
       children: [
-        Text('Date Range'),
+        const Text('Date Range'),
         Expanded(
           child: RangeSlider(
             values: _dateRange,
@@ -180,7 +180,7 @@ class _FitKitAppState extends State<FitKitPage> {
   Widget _buildLimitSlider(BuildContext context) {
     return Row(
       children: [
-        Text('Limit'),
+        const Text('Limit'),
         Expanded(
           child: Slider(
             value: _limitRange,
@@ -201,17 +201,17 @@ class _FitKitAppState extends State<FitKitPage> {
           child: FlatButton(
             color: Theme.of(context).accentColor,
             textColor: Colors.white,
-            onPressed: () => read(),
-            child: Text('Read'),
+            onPressed: read,
+            child: const Text('Read'),
           ),
         ),
-        Padding(padding: EdgeInsets.symmetric(horizontal: 4)),
+        const Padding(padding: EdgeInsets.symmetric(horizontal: 4)),
         Expanded(
           child: FlatButton(
             color: Theme.of(context).accentColor,
             textColor: Colors.white,
-            onPressed: () => revokePermissions(),
-            child: Text('Revoke permissions'),
+            onPressed: revokePermissions,
+            child: const Text('Revoke permissions'),
           ),
         ),
       ],
