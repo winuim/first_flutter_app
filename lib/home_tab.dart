@@ -95,7 +95,8 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return CupertinoPageScaffold(
+        child: CustomScrollView(
       slivers: <Widget>[
         CupertinoSliverNavigationBar(
           largeTitle: const Text('Home'),
@@ -148,6 +149,6 @@ class _HomeTabState extends State<HomeTab> {
               ]))
         ]))
       ],
-    );
+    ));
   }
 }

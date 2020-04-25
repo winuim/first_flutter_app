@@ -39,7 +39,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.winuim.first_flutter_app"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -64,4 +64,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    api 'com.google.firebase:firebase-ml-vision:24.0.2'
+    api 'com.google.firebase:firebase-ml-vision-image-label-model:20.0.0'
+    api 'com.google.firebase:firebase-ml-vision-object-detection-model:19.0.4'
+    api 'com.google.firebase:firebase-ml-vision-face-model:20.0.0'
+    api 'com.google.firebase:firebase-ml-vision-barcode-model:16.1.0'
 }
+
+apply plugin: 'io.fabric'
+apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
